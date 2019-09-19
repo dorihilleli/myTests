@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+
+        <title>AppInApp SDK Demo</title>
+        
+        <style>
+            button {
+                border: solid 1px black;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>AppInApp SDK Demo</h1>
+
+        Enteer Api Key: <input id="appKey" value="APP-123-123-123" style="font-size:16px;" />
+        <hr />
+        <button onclick="launchUI(event)">Launch UI</button>
+        <button onclick="openChat(event)">Direct to Chat</button>
+
+        <script src="./dist/appinapp-sdk.js"></script>
+        <script>
+            function launchUI(e) {
+                e.preventDefault(); 
+                var apiKey = document.getElementById('appKey').value;
+                appInApp.init(apiKey);
+                appInApp.launch(); 
+            }
+
+            function openChat(e) {
+                e.preventDefault(); 
+                var apiKey = document.getElementById('appKey').value;
+                appInApp.init(apiKey);
+                appInApp.showChat(); 
+            }
+        </script>
+    </body>
+</html>
